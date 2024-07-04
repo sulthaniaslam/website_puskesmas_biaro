@@ -1,0 +1,1070 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body h1, h2, h3, h4, h5, h6, p, a, label, input, option{
+    font-family: "Josefin Sans", sans-serif;
+}
+
+/* Tombol back to top */
+#tombolatas {
+    display: none;
+    position: fixed;
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #A9A9A9; 
+    color: #Fff; 
+    cursor: pointer; 
+    padding: 10px 15px; 
+    border-radius: 10px;
+    font-size: 18px;
+    transition: all .3s;
+}
+#tombolatas:hover {
+    background-color: #388E3C; /* Add a dark-grey background on hover */
+    color: #DCE775;
+}
+/* tutup tombol back to top */
+
+/* Tombol Chat WA */
+#tombolwa {
+    position: fixed;
+    bottom: 80px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #00d624; 
+    color: #Fff; 
+    cursor: pointer; 
+    padding: 2px 11px 2px; 
+    border-radius: 10px;
+    font-size: 28px;
+    transition: all .3s;
+}
+#tombolwa:hover {
+    background-color: #388E3C; /* Add a dark-grey background on hover */
+    color: #DCE775;
+}
+/* tutup tombol Chat WA */
+
+/* MODAL */
+.modal-header{
+    background-color: #8BC34A;
+}
+
+.modal .modal-dialog .modal-content .modal-header .modal-title{
+    font-size: 24px;
+    padding: 0px 10px;
+    font-weight: 800;
+    width: fit-content;
+    color: #000;
+}
+
+.modal-body{
+    background-color: #DCE775;
+}
+
+.modal .modal-dialog .modal-content .modal-body .gambar-modal{
+    width: 100%;
+    box-shadow: 10px 10px #8BC34A;
+    margin-bottom: 30px;
+}
+
+.modal .modal-dialog .modal-content .modal-footer{
+    background-color: #388E3C;
+}
+
+/* TUTUP MODAL */
+
+/* Heading */
+.heading .brand .brand-img {
+    width: 5vh;
+}
+
+.heading .brand .brand-txt {
+    font-size: 2vh;
+    font-weight: 700;
+}
+
+.brand {
+    text-decoration: none;
+    color: black;
+}
+/* Tutup Heading */
+
+/* Side Nav */
+.menu{
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    font-size: 28px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.menu:hover{
+    background-color: #388E3C;
+    border-color: #DCE775;
+    color: #DCE775;
+}
+
+.heading > .offcanvas > .offcanvas-header{
+    background-color: #DCE775;
+}
+
+.heading > .offcanvas > .offcanvas-header > h3{
+    font-weight: 500;
+}
+
+.heading > .offcanvas{
+    background-color: #8BC34A;
+}
+
+.heading .sidebar {
+    background-color: transparent;
+    border: none;
+}
+
+.heading .sidebar li a{
+    text-decoration: none;
+    color: #388E3C;
+}
+
+.heading .sidebar li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+.heading .sidebar li .submenu li a{
+    color: #388E3C;
+}
+
+.heading .sidebar li .submenu li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+.heading .sidebar li .submenu2 li a{
+    color: #388E3C;
+}
+
+.heading .sidebar li .submenu2 li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+.sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
+}
+
+.ikon-sosmed{
+    color: #388E3C;
+    font-size: 18px;
+}
+
+.ikon-sosmed:hover{
+    color: #000;
+}
+/* Tutup Side Nav */
+
+/* SESI 1 */
+
+.sesi1{
+    height: 100vh;
+    width: 100%;
+}
+
+.judul-sesi{
+    font-size: 32px;
+    margin-top: 30px;
+    font-weight: 800;
+    width: fit-content;
+    color: #388E3C;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.judul-bar{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #000;
+    transition: width 0.2s ease;
+}
+
+.bg-utama{
+    height: 100vh;
+    background-image: url('../img/bg-sesi1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.bg-utama .rangkiang{
+    position: absolute;
+    z-index: 3;
+    min-width: 400px;
+	min-height: 400px;
+	background-color: transparent;
+	border-radius: 100%;
+    padding: 20px;
+    right: 110px;
+    top: 185px;
+    
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        }
+    
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+    
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+    }
+
+.img1{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.img2{
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.img3{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.img4{
+    z-index: 5;
+    position: absolute;
+    height: 300px;
+    right: 27vh;
+    top: 35vh;
+}
+.img5{
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+h1.judul{
+    z-index: 1;
+    position: absolute;
+    color: #388E3C;
+    top: 30vh;
+    left: 5vw;
+    font-size: 4vw;
+    font-weight: 700;
+    text-shadow: 3px 3px #DCE775;
+    width: 800px;
+}
+
+.sesi1 .bg-utama .subjudul{
+    position: absolute;
+    top: 25vh;
+    left: 5vw;
+    z-index: 1;
+    color: #DCE775;
+    text-shadow: 2px 2px #000;
+}
+
+.sesi1 .bg-utama .tombol-sesi1{
+    position: absolute;
+    bottom: 15vh;
+    left: 5vw;
+    z-index: 5;
+    background-color: transparent;
+    color: #DCE775;
+    border: 2px solid #DCE775;
+    padding: 10px;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.sesi1 .bg-utama .tombol-sesi1:hover{
+    background-color: #388E3C;
+    color: #DCE775;
+    border: 2px solid #DCE775;
+}
+
+/* TUTUP SESI 1 */
+
+/* SESI 2 */
+
+.sesi2{
+    min-height: 80vh;
+    background-color: #fff;
+}
+
+.pilih-sesi2{
+	transition: all 2s;
+	opacity: 0;
+	transform: translate(0, -50px);
+}
+
+.pilih-sesi2.muncul {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
+.sesi2 .container .row .col-6 .card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    min-height: 150px;
+    min-width: 100%;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+
+.sesi2 .container .row .col-6 .l-bg-orange-dark {
+    background: linear-gradient(to right, #8BC34A, #A9A9A9) !important;
+    color: #fff;
+    font-weight: 800;
+    transition: all .3s;
+}
+
+.sesi2 .container .row .col-6 .l-bg-orange-dark:hover{
+    background: linear-gradient(to right, #8BC34A, #388E3C) !important;
+    color: #000;
+}
+
+.sesi2 .container .row .col-6 .card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+
+.sesi2 .container .row .col-6 .card .card-statistic-3 .card-icon-large{
+    font-size: 110px;
+}
+
+.nama-tombol-sesi2{
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000;
+}
+
+
+/* TUTUP SESI 2 */
+
+/* SESI 3 */
+
+.sesi3{
+    background-image:linear-gradient(rgba(56, 142, 60, .5), rgba(0, 0, 0, .8)), url("../img/bg-sesi3-2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    height: fit-content;
+    background-color: #8BC34A;
+    color: #Fff;
+}
+
+.cover-bg-sesi3{
+    position: relative;
+    width: 100vw; 
+    height: 100vh; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cover-bg-sesi3::after {
+    content: '';
+    position: absolute;
+    background: #074f57;
+    inset: 0;
+    z-index: -1;
+  }
+
+.judul-sesi3{
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: 800;
+    width: fit-content;
+    color: #fff;
+    z-index: 99;
+}
+
+.judul-bar3{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #388E3C;
+    transition: width 0.2s ease;
+}
+
+.card-sesi3{
+    margin-bottom: 20px;
+    transition: all .3s;
+    min-height: 220px !important;
+}
+
+.card-sesi3:hover{
+    background-color: #388E3C;
+    color: #fff;
+}
+
+.gambar-sesi3{
+    width: 80%;
+}
+
+.teks-sesi3{
+    text-align: justify;
+}
+
+.judul-card-sesi3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+/* TUTUP SESI 3 */
+
+/* SESI 4 */
+.sesi4{
+    height: fit-content;
+    background-color: #fff;
+}
+
+.judul-sesi4{
+    font-size: 32px;
+    margin-top: 30px;
+    font-weight: 800;
+    width: fit-content;
+    color: #388E3C;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.judul-bar4{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #000;
+    transition: width 0.2s ease;
+}
+
+.tombol-sesi4{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    border: 3px solid #A9A9A9;
+    color: #A9A9A9;
+    padding: 10px;
+    width: 300px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    transition: all .3s;
+}
+
+.tombol-sesi4:hover{
+    background-color: #388E3C;
+    border: 3px solid #000;
+    border-radius: 20px;
+    color: #000;
+}
+/* TUTUP SESI 4 */
+
+
+/* SESI 5 */
+.sesi5{
+    min-height: fit-content;
+    background-color: #DCE775;
+}
+
+.judul-sesi5{
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: 800;
+    width: fit-content;
+    color: #000;
+    z-index: 99;
+}
+
+.judul-bar5{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #388E3C;
+    transition: width 0.2s ease;
+}
+
+.sesi5 a.tombol-informasi{
+    text-decoration: none;
+}
+.tombol-hlm-berita-lainnya{
+    text-align: center;
+}
+.tombol-hlm-berita-lainnya a{
+    text-decoration: none;
+    color: #388E3C;
+    padding: 10px;
+    border: 2px solid #388E3C;
+    font-size: 18px;
+    transition: all .3s;
+}
+.tombol-hlm-berita-lainnya a:hover{
+    color: #DCE775;
+    background-color: #388E3C;
+    border: 2px solid #DCE775;
+}
+
+/* tutup gsesi 5 */
+
+/* Sesi 6 */
+.sesi6{
+    min-height: 100vh;
+    background-color: #DCE775;
+}
+.judul-sesi6{
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: 800;
+    width: fit-content;
+    color: #000;
+    z-index: 99;
+}
+.gambar-sesi6{
+    width: 80%;
+}
+/* Tutup sesi 6 */
+
+/* Kontak */
+.kontak{
+    min-height: 80vh;
+    background-color: #fff;
+}
+
+.judul-kontak{
+    font-size: 32px;
+    margin-top: 30px;
+    font-weight: 800;
+    width: fit-content;
+    color: #388E3C;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.judul-bar-kontak{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #000;
+    transition: width 0.2s ease;
+}
+
+.kontak .container .row .col-6 .row .col-3 .ikon-kontak{
+    font-size: 28px;
+    background-color: #388E3C;
+    padding: 10px 5px;
+    border-radius: 10px;
+    color: #DCE775;
+    width: 50px;
+}
+
+.kontak .container .row .col-6 .row .col-9 .judul-kontak{
+    font-size: 24px;
+    font-weight: 800;
+    color: #388E3C;
+    margin: 0;
+    padding: 0;
+}
+
+.kontak .container .row .col-6 .row .col-9 .isi-kontak{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+/* Tutup Kontak */
+
+/* FOOTER */
+.footer{
+    padding: 20px;
+    background-color: #388E3C;
+    color: white;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #8BC34A;
+}
+
+.footer a:hover{
+    font-weight: 600;
+    color:#DCE775;
+}
+/* FOOTER */
+
+@media screen and (max-width: 600px) {
+    
+    /* SESI 1 */
+    .bg-utama .rangkiang{
+        position: absolute;
+        z-index: 3;
+        min-width: 350px;
+        min-height: 350px;
+        background-color: transparent;
+        border-radius: 100%;
+        padding: 20px;
+        right: 73px;
+        top: 285px;
+        
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+        transform: scale(1);
+        animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+        
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            }
+        
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+    }
+    .img4{
+        z-index: 4;
+        position: absolute;
+        height: 250px;
+        right: 22vh;
+        top: 53vh;
+    }
+
+    h1.judul{
+        z-index: 1;
+        position: absolute;
+        top: 35vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 6vw;
+        font-weight: 700;
+        text-shadow: 2px 2px #DCE775;
+        width: 400px;
+        text-align: center;
+    }
+    
+    .sesi1 .bg-utama .subjudul{
+        position: absolute;
+        top: 30vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        margin: 0 auto;
+        width: 400px;
+        text-align: center;
+    }
+    
+    .sesi1 .bg-utama .tombol-sesi1{
+        bottom: 10vh;
+        left: 50%;
+        background-color: transparent;
+        color: #388E3C;
+        border: 2px solid #388E3C;
+        border-radius: 10px;
+        padding: 5px;
+        transition: all .3s;
+        text-decoration: none;
+        transform: translate(-50%, -50%);
+    }
+
+    .img1{
+        width: 100%;
+    }
+    /* TUTUP SESI 1 */
+}
+
+
+
+/* -----------------------------Halaman Deskripsi-------------------------------------- */
+
+body nav.navbar-deskripsi{
+    background-color: #8BC34A;
+}
+
+body nav.navbar-deskripsi .container-fluid .navbar-brand{
+    font-weight: 700;
+    color: #388E3C;
+    text-shadow: 2px 2px #DCE775;
+}
+
+/* Navbar Detail */
+body > nav.navbar-deskripsi > .container-fluid > .offcanvas > .offcanvas-header{
+    background-color: #DCE775;
+}
+
+body > nav.navbar-deskripsi > .container-fluid > .offcanvas > .offcanvas-header > h3{
+    font-weight: 500;
+}
+
+body > nav.navbar-deskripsi > .container-fluid > .offcanvas{
+    background-color: #8BC34A;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar {
+    background-color: transparent;
+    border: none;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li a{
+    text-decoration: none;
+    color: #388E3C;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li .submenu li a{
+    color: #388E3C;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li .submenu li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li .submenu2 li a{
+    color: #388E3C;
+}
+
+body > nav.navbar-deskripsi > .container-fluid .sidebar li .submenu2 li a:hover{
+    color: #DCE775;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+.sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
+}
+/* tutup navbar detail */
+
+/* Deskripsi 1 */
+.deskripsi1{
+    min-height: 100vh;
+    background-color: #DCE775;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.deskripsi1 .body-deskripsi1{
+    background-color: #fff;
+    padding-bottom: 30px;
+    border-top: 10px solid #388E3C;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px grey;
+}
+
+.deskripsi1 .body-deskripsi1 .row h1{
+    padding-bottom: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #388E3C;
+}
+
+.deskripsi1 .body-deskripsi1 .row .col-6 .gambar-deskripsi1{
+    width: 100%;
+    box-shadow: 10px 10px #8BC34A;
+    margin-bottom: 30px;
+}
+
+.deskripsi1 .body-deskripsi1 .row .col-12 .isi-deskripsi1{
+    text-align: justify;
+}
+/* tutup deskripsi 1 */
+
+/* Perangkat Nagari */
+.body-deskripsi1 .row .col-12 .p-nag-card {
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+ 
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity .2s ease-out;
+  }
+
+  h3 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset .3s .3s ease-out;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #388E3C;
+  }
+  
+  p, a {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity .3s ease-out;
+    color: #388E3C;
+  }
+  
+  p {
+    inset: auto auto 10px 30px;
+  }
+  
+  a {
+    inset: auto auto 40px 30px;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  &:hover h3 {
+    inset: auto auto 300px 30px;
+    transition: inset .3s ease-out;
+  }
+  
+  &:hover p, &:hover a {
+    opacity: 1;
+    transition: opacity .5s .1s ease-in;
+  }
+  
+  &:hover img {
+    transition: opacity .3s ease-in;
+    opacity: 0.3;
+  }
+
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}
+/* Tutup perangkat Nagari */
+
+/* halaman tabel */
+.body-deskripsi1 .row .col-12 .table-responsive .table .judul-tabel{
+    background-color: #8BC34A;
+}
+/* tutup halaman tabel */
+
+/* Detail Berita */
+.gambar-berita{
+    width: 100%;
+}
+/* tutup detail berita */
+
+/* Modal Pegawai */
+.card.card-pegawai{
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px #000;
+    height: 330px;
+    margin: auto;
+}
+
+.gambar-pegawai{
+    border-radius: 20px;
+    height: 330px;
+}
+
+.card-pegawai p{
+    font-size: 14px;
+}
+
+.isi-card-pegawai {
+    padding: 0 1.5rem;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    display: grid;
+    gap: 0.5ch;
+    background: hsl(0 0% 100% / 0.6);
+    backdrop-filter: blur(var(--blur));
+    height: fit-content;
+    align-content: center;
+    border-radius: 20px;
+  }
+
+.nama-pegawai {
+    transition: all .5s;
+	opacity: 0;
+	transform: translate(0, 50px);
+}
+
+.card-pegawai:hover .nama-pegawai{
+	opacity: 1;
+	transform: translate(0, 0);
+}
+  .card-pegawai:is(:hover, :focus-visible) {
+    --hover: 1;
+  }
+
+/* Tutup modal pegawai */
+
+/* Modal Standar Pelayanan */
+.kartu-sp {
+    border-radius: 10px;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    width: 100%;
+    height: 180px !important;
+    background-color: #ffffff;
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+  }
+  
+.kartu-sp::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+    right: -15px;
+    background: #8BC34A;
+    height:220px;
+    width: 25px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+a.kartu-layanan{
+    text-decoration: none;
+}
+  
+.kartu-sp:hover::before{
+    transition-delay:0.2s ;
+    transform: scale(40);
+  }
+  
+.kartu-sp:hover{
+      color: #ffffff;
+  }
+  
+.kartu-sp h3{
+    text-shadow: 2px 2px 3px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    font-weight: 800;
+    font-size: 24px;
+  }
+
+.kartu-sp h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    color: #388E3C;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+    font-size: 48px;
+}
+/* Tutup Modal STandar Pelayanan */
+
+
+/* Halaman SKM */
+.skm{
+    min-height:100vh;
+    padding-top:100px;
+    padding-bottom: 50px;
+    background-color: #DCE775;
+}
+
+.body-skm{
+    padding: 50px;
+    background-color: #fff;
+}
+/* Tutup halaman SKM */
+
+/* Berita Lainnya */
+.judul-berita-lainnya{
+    color: #388E3C;
+}
+.jenis-berita-lainnya{
+    color: #8BC34A;
+}
+a.tombol-berita-lainnya{
+    text-decoration: none;
+    color: #388E3C;
+}
+a.tombol-berita-lainnya:hover{
+    color: #8BC34A;
+}
+/* Tutup berita lainnya */

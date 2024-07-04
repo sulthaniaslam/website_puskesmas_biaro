@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Publikasi IKM</title>
+
+    <!-- pemanggilan CSS -->
+    @include('includes.backend.css')
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+
+    <style>
+        .form-check {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check-input {
+            display: none;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check-input:checked+.form-check-label::before {
+            /* Unicode character for a checked checkbox in Font Awesome */
+            font-family: 'Font Awesome\ 6 Free';
+            margin-right: 8px;
+        }
+
+        .form-check {
+            display: inline-block;
+            margin-right: 10px;
+            /* Atur margin-right sesuai kebutuhan Anda */
+        }
+
+        .form-check-label {
+            font-size: 4rem;
+            /* Sesuaikan dengan ukuran yang diinginkan */
+            /* Tambahan gaya styling lainnya, jika diperlukan */
+        }
+
+        .form-check-label:hover {
+            background-color: #eee;
+            color: #000;
+        }
+
+        .form-check-label.active {
+            /* Additional styling to indicate that the label is active */
+            color: #000;
+            background-color: #00f;
+        }
+
+        .form-check-label.active::before {
+            /* Hide the checkmark icon */
+            content: none;
+        }
+
+        .form-check-label.active>.form-check-label-icon {
+            /* Change the color of the emoticon */
+            color: #00f;
+        }
+
+        .card {
+            justify-content: center;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+            /* Sesuaikan dengan kebutuhan desain Anda */
+        }
+
+
+
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+
+            #form_emoticon {
+                padding-left: 10rem;
+
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            #form_emoticon {
+                padding-left: 10rem;
+
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .form-check-label {
+                font-size: 1.5rem;
+                /* Sesuaikan dengan ukuran yang diinginkan */
+                /* Tambahan gaya styling lainnya, jika diperlukan */
+                align-items: center;
+            }
+
+            .text_label {
+                font-size: 1rem;
+            }
+
+            .font-weight-bold {
+                font-size: 18px;
+            }
+
+            .card-text {
+                font-size: 14px;
+            }
+
+            .img-fluid {
+                width: 15%;
+            }
+
+            .ml-2.mx-4.text-center {
+                padding: 10px;
+            }
+
+            #btnInsert {
+                justify-content: center;
+                /* align-items: center; */
+            }
+
+            #form_emoticon {
+                justify-content: center;
+                /* align-items: center; */
+
+            }
+
+        }
+
+        .d-flex.align-items-center.justify-content-center {
+            flex-wrap: wrap;
+        }
+    </style>
+
+
+</head>
+
+<body class="bg-primary-gradient" style="background-color: #EEE7DA">
+
+    <div class="mx-0 mx-sm-auto">
+        <div class="card-header"
+            style="background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);">
+            <h5 class="card-title text-white mt-2" id="exampleModalLabel">UPTD Puskesmas Lasi</h5>
+        </div>
+        <div class="card mx-auto" style="width: 70%; margin-top: 2rem; ">
+            <div class="modal-body">
+                {{-- <div class="card mx-auto" style="width: 80%"> --}}
+                    <div class="text-center" style="margin-top: 2rem;">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img src="{{asset('images/logo_agam.png')}}" class="img-fluid" alt="Logo"
+                                        width="10%">
+                                    <div class="ml-2 mx-4 text-center">
+                                        <span class="font-weight-bold" style="font-size: 22px;">UPTD PUSKESMAS
+                                            LASI</span><br>
+                                        <span style="font-size: 15px;">Jln. Piliang, Lubuk Basung 26415 (Komplek Kantor
+                                            Bupati Agam)</span><br>
+                                        <span style="font-size: 15px;">Tlp./Fax. (0752) 66264</span>
+                                    </div>
+                                    <img src="{{asset('images/logo.jpeg')}}" class="img-fluid" alt="Logo" width="10%">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="d-flex container-fluid">
+                        {{-- !---- card --- ! --}}
+                        @php
+                        $no = 1;
+                        @endphp
+                        <form class="container-fluid" method="POST" id="form_emoticon">
+                            @csrf
+
+                            @foreach ($datas as $data)
+                            <div class="question-container">
+                                <p class="text_label" style="margin-top: 2rem">
+                                    <?php echo $no; ?> <input type="text" class="form-control"
+                                        name="kuisioner_kepuasan[]" value="{{$data['pertanyaan']}}" readonly>
+                                </p>
+
+                                @foreach ($data['pilihan'] as $emoticon)
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input emoticon-{{ $no }}" type="radio"
+                                        name="emotikon[{{ $no }}]" value="{{ $emoticon['pilihan_nilai'] }}"
+                                        id="pilihan-{{ $emoticon['pilihan_nilai'] }}-{{ $no }}" data-group="{{ $no }}">
+                                    <label class="form-check-label"
+                                        for="pilihan-{{ $emoticon['pilihan_nilai'] }}-{{ $no }}">
+                                        {{ $emoticon['icon'] }}
+                                    </label>
+                                </div>
+                                @endforeach
+                            </div>
+                            @php
+                            $no++;
+                            @endphp
+                            @endforeach
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @include('includes.backend.script')
+</body>
+
+<script>
+    $('.form-check-label').click(function() {
+    // Get the value of the input radio
+    var selectedEmoticon = $(this).attr('for');
+
+    // Loop through all other labels
+    $('.form-check-label').each(function() {
+        // If the label is not the one that was clicked
+        if ($(this).attr('for') !== selectedEmoticon) {
+        // Remove the active class
+        $(this).removeClass('active');
+        }
+    });
+
+    // Add the active class to the clicked label
+    $(this).addClass('active');
+    });
+
+    function insert() {
+        
+        // Ambil isi hasil radio button
+        let selectedEmoticon = $("input[name='emotikon']:checked").val();
+
+        // Kumpulkan data dari pilihan emotikon lainnya
+        let pilihanData = {
+        "pilihan1": $("#pilihan1").is(":checked"),
+        "pilihan2": $("#pilihan2").is(":checked"),
+        "pilihan3": $("#pilihan3").is(":checked"),
+        "pilihan4": $("#pilihan4").is(":checked"),
+        "pilihan5": $("#pilihan5").is(":checked"),
+        "pilihan6": $("#pilihan6").is(":checked"),
+        "pilihan7": $("#pilihan7").is(":checked"),
+        "pilihan8": $("#pilihan8").is(":checked"),
+        "pilihan9": $("#pilihan9").is(":checked"),
+        };
+
+        console.log(pilihanData);
+
+    }
+
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "{{url('https://rangkiang.agamkab.go.id/api/ikm/ajaxGetSurvei')}}",
+    //         success: function (response) {
+    //            var data = response ;
+    //             console.log(data);
+    //             let viewData = '';
+    //             data.forEach(e => {
+
+
+    //             });
+
+    //         }
+    //     });
+    
+    // });
+</script>
+
+</html>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="form-check-inline">
+    <input type="radio" class="form-check input emoticon-{{ $no }}"
+        value="{{$item['pilihan']}}" name="respon_kepuasan[<?php echo $no; ?>]"
+        id="pilihan<?php echo $no; ?>">
+    <label class="form-check-label" for="pilihan-{{ $item['pilihan_nilai'] }}-{{ $no }}">
+        {{ $item['icon'] }}
+    </label>
+</div>
+
+
+<!-- style di bawah ini terbaru tanggal 27-12-2023 -->
+
+<!-- Letakkan kode CSS di bawah ini atau gunakan file CSS terpisah yang dihubungkan di sini -->
+<style>
+    /* CSS untuk mengubah warna header */
+    .model_true .modal-header {
+
+        background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
+
+        /* background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%); */
+        color: white;
+        /* Mengubah warna teks menjadi putih agar terlihat kontras */
+    }
+
+    .model_true .modal-title {
+        color: white;
+        /* Mengubah warna teks menjadi putih agar terlihat kontras */
+    }
+
+    /* CSS untuk menyesuaikan lebar modal menjadi 200% */
+    .model_true .modal-dialog {
+        width: 100%;
+        max-width: 90%;
+        padding-top: 5rem;
+        /* Untuk mendukung browser yang tidak mengenali width lebih dari 100% */
+    }
+
+    /* CSS untuk menyesuaikan tinggi modal menjadi otomatis (auto) */
+    .model_true .modal-content {
+        height: auto;
+        /* max-height: calc(100vh - 200px); */
+        max-height: 90%;
+        /* 200px adalah margin atas dan bawah dari modal */
+        overflow-y: auto;
+        /* Untuk mengaktifkan scrollbar jika konten terlalu panjang */
+    }
+
+    .model_true .modal-body {
+        color: black;
+        padding: 2rem;
+        /* Ganti warna font sesuai keinginan Anda */
+    }
+
+    #informasi .card {
+        /* background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%); */
+        /* background: #BEADFA; */
+        background: linear-gradient(90deg, hsla(259, 84%, 78%, 1) 0%, hsla(206, 67%, 75%, 1) 100%);
+    }
+
+    #informasi .card:hover {
+        background: #BEADFA;
+    }
+
+    #informasi .card img {
+        width: 1000rem;
+        height: 18rem;
+        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+    }
+
+    .card {
+        /* Gaya kartu normal */
+        /* Tambahkan properti lain yang Anda butuhkan di sini */
+    }
+
+    .card:hover {
+        /* Gaya kartu ketika kursor diarahkan ke atasnya */
+        /* background: linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%); */
+        background: #BEADFA;
+
+        /* Ubah warna latar belakang sesuai keinginan */
+        /* Tambahkan properti lain yang Anda butuhkan di sini */
+    }
+
+    #layanan_publik {
+        /* background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%); */
+        background: linear-gradient(90deg, hsla(259, 84%, 78%, 1) 0%, hsla(206, 67%, 75%, 1) 100%);
+    }
+
+    /* Mengatur card awal */
+    #layanan_publik .card {
+        border-radius: 15px;
+        /* Tepi (border) yang dibulatkan pada card */
+        overflow: hidden;
+        /* Menghilangkan elemen anak yang keluar dari batas card */
+        transition: all 0.3s ease;
+        /* Efek transisi untuk perubahan saat hover */
+    }
+
+    /* Mengatur efek hover pada card */
+    #layanan_publik .card:hover {
+        /* background-color: linear-gradient(to bottom, #32CD32, #fff) !important; */
+        background: #BEADFA;
+        /* Ganti dengan warna yang diinginkan saat hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        /* Efek bayangan saat hover */
+        border-radius: 30px;
+        /* Tepi (border) yang dibulatkan lebih saat hover */
+    }
+
+    /* Mengatur ukuran gambar dan efek hover */
+    #layanan_publik .card:hover img {
+        transform: scale(1.1);
+        /* Ukuran gambar akan diperbesar saat hover */
+    }
+
+    /* website */
+
+    #image_layanan_publik {
+        max-width: 80%;
+        height: 100%;
+    }
+
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+
+        /*@media (min-width: 575.98px) and (max-width: 1199.98px) {*/
+        #image_layanan_publik {
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+
+    /* mobile phone */
+
+    @media (max-width: 575.98px) {
+
+        #image_layanan_publik {
+            /*max-width: 10%;*/
+            max-width: 100%;
+            height: auto;
+        }
+    }
+</style>
