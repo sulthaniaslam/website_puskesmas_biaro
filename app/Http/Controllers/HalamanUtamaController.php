@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HalamanUtamaController extends Controller
 {
@@ -27,8 +28,10 @@ class HalamanUtamaController extends Controller
         $informasi = InformasiPuskesmas::first();
         $tarifPelayanan = TarifPelayanan::get();
         $jadwalPelayanan = JadwalPelayanan::get();
+        $pegawaiFavorit = PegawaiPuskesmas::where('is_favorit', true)->get();
+        $pertanyaan = DB::table('pertanyaan')->orderBy('created_at', 'desc')->paginate(5);
 
-        return view('frontend.index', compact('allBerita', 'allBerkas', 'informasi', 'tarifPelayanan', 'jadwalPelayanan'));
+        return view('frontend.index', compact('allBerita', 'allBerkas', 'informasi', 'tarifPelayanan', 'jadwalPelayanan', 'pegawaiFavorit', 'pertanyaan'));
 
         // return view('frontend.index');
         // return view('layouts.user');
@@ -88,5 +91,18 @@ class HalamanUtamaController extends Controller
         $maklumat = MaklumatPelayanan::first();
         return response($maklumat);
         // return response()
+    }
+
+
+    // Tanya Jawab
+    public function kirimPertanyaan(Request $request){
+        // return $request->all();
+        DB::table('pertanyaan')->insert([
+            'nama'          => $request->nama,
+            'pertanyaan'    => $request->pertanyaan,
+            'created_at'    => now(),
+        ]);
+
+        return redirect()->route('/')->with('message', 'Pertanyaan berhasil dikirim');
     }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\JadwalPelayananController;
 use App\Http\Controllers\Admin\JenisPelayananController;
 use App\Http\Controllers\Admin\MaklumatPelayananController;
 use App\Http\Controllers\Admin\MekanismeAlurController;
+use App\Http\Controllers\admin\PegawaiFavoritController;
 use App\Http\Controllers\HalamanUtamaController;
 use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\ShowDetailBeritaController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\Admin\SKKompensasiController;
 use App\Http\Controllers\Admin\SKPetugasPengaduan;
 use App\Http\Controllers\Admin\StandardPelayananController;
 use App\Http\Controllers\Admin\PublikasiIkmController;
+use App\Http\Controllers\admin\TanyaJawabController;
 use App\Http\Controllers\Admin\TarifPelayananController;
 use App\Http\Controllers\UserJenisPelayananController;
 use App\Http\Controllers\UserPengaduanController;
@@ -71,6 +73,10 @@ Route::group(['middleware' => ['IsTamu']], function () {
     //  Auth
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::POST('proses_login', [AuthController::class, 'proses_login'])->name('proses_login');
+
+
+    // Pertanyaan
+    Route::post('kirim_pertanyaan', [HalamanUtamaController::class, 'kirimPertanyaan'])->name('kirim_pertanyaan');
 });
 Route::group(['middleware' => ['IsLogin']], function () {
     Route::get('logout/{id}', [AuthController::class, 'logout'])->name('logout');
@@ -201,5 +207,11 @@ Route::group(['middleware' => ['IsLogin']], function () {
         Route::get('laporan_skm', [LaporanController::class, 'laporan_skm'])->name('laporan_skm');
         Route::get('export_exel', [LaporanController::class, 'export_exel'])->name('export_exel');
         Route::get('export_exel_hasil_skm', [LaporanController::class, 'export_exel_skm'])->name('export_exel_hasil');
+
+        // Pegawai Favorit
+        Route::get('pegawai_favorit/{id}', [PegawaiFavoritController::class, 'pegawaiFavorit'])->name('pegawai_favorit');
+
+        // Tanya Jawab
+        Route::get('tanya_jawab', [TanyaJawabController::class, 'index'])->name('tanya_jawab');
     });
 });

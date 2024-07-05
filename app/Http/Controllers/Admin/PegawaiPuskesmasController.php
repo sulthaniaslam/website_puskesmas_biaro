@@ -18,7 +18,7 @@ class PegawaiPuskesmasController extends Controller
      */
     public function index()
     {
-        $PegawaiPuskesmas = PegawaiPuskesmas::select('id_pegawai', 'nama_lengkap', 'nip', 'golongan_jabatan', 'status_jabatan', 'foto_pegawai')
+        $PegawaiPuskesmas = PegawaiPuskesmas::select('id_pegawai', 'nama_lengkap', 'nip', 'golongan_jabatan', 'status_jabatan', 'foto_pegawai', 'is_favorit')
             ->orderBy('id_pegawai', 'desc')
             ->get();
         return view('backend.pegawai_puskesmas.index', compact('PegawaiPuskesmas'));
