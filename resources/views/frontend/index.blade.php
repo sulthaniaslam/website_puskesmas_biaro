@@ -12,7 +12,7 @@
 <style>
     .bg-utama {
         height: 100vh;
-        background-image: url('{{ asset("images/gambar_profile/profile_puekesmas_matur.jpeg") }}');
+        background-image: url('{{ asset("images/gambar_profile/puskesmas_biaro.jpg") }}');
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -397,6 +397,100 @@
     </div>
 </section>
 {{-- data informasi --}}
+
+{{-- Pegawai Favorit --}}
+<style>
+    .favorit{
+        min-height: 400px;
+    }
+</style>
+<section id="favorit" class="favorit">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="judul-kontak"><i class="fa fa-star" aria-hidden="true"></i> Pegawai Favorit</p>
+                <div class="judul-bar-kontak"></div>
+            </div>
+        </div>
+        <div class="row mt-5 justify-content-center">
+            @foreach ($pegawaiFavorit as $pf)
+                <div class="col-4 text-center">
+                    <img src="{{ url('images/pegawai_puskesmas/' . $pf->foto_pegawai) }}" alt=""
+                    style="
+                    width: 200px;
+                    border-radius: 5px;
+                    box-shadow: 5px 5px 5px rgb(121, 121, 121);
+                    "
+                    >
+                    <br><br>
+                    <h3>{{ $pf->nama_lengkap }}</h3>
+                    <span style="font-weight: bold;">{{ $pf->nip }}</span>
+                    <br>
+                    <span>{{ $pf->status_jabatan }}</span>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+{{--  --}}
+
+
+{{-- Tanya Jawab --}}
+<section class="sesi5 pt-3" id="informasi">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-12">
+                <p class="judul-sesi5"><i class="fa fa-question" aria-hidden="true"></i> Tanya</p>
+                <div class="judul-bar5"></div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <form action="{{ route('kirim_pertanyaan') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Nama</label>
+                        <input type="text" name="nama" id="nama" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pertanyaan</label>
+                        <textarea name="pertanyaan" id="pertanyaan" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group mt-4">
+                        <button class="btn btn-success"><i class="fa fa-arrow-right"></i> Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="judul-sesi5"><i class="fa fa-comment"></i> Jawab</p>
+            </div>
+            @foreach ($pertanyaan as $p)
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{ $loop->iteration }}
+                        {{ $p->nama }}
+                        @php
+                            $timestamp = strtotime($p->created_at);
+                            echo date('d-m-Y', $timestamp);
+                        @endphp
+                        <br>
+                        {{ $p->pertanyaan }}
+                        <br>
+                        {{ $p->jawaban }}
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <div class="col-12 text-center mt-5">
+                <button class="btn btn-success btn-outline"><i class="fa fa-search"></i> Lihat Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+</section>
+{{--  --}}
 
 <!-- KONTAK -->
 <section class="kontak pt-3" id="kontak">

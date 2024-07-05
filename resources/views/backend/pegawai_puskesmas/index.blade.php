@@ -24,6 +24,7 @@
                                     <th>Golongan Jabatan</th>
                                     <th>Status Jabatan</th>
                                     <th>Foto Pegawai</th>
+                                    <th>Pegawai Favorit</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -38,6 +39,19 @@
                                     <td>
                                         <img src='{{ asset("images/pegawai_puskesmas/$pegawai->foto_pegawai") }}'
                                             width="100" alt="Foto Pegawai Puskesmas">
+                                    </td>
+                                    <td>
+                                        @if ($pegawai->is_favorit == 1)
+                                        <span class="badge bg-success mb-1"><a onclick="onFavorit('{{Crypt::encrypt($pegawai->id_pegawai)}}')" class="btn btn" style="padding: 0.2rem 0.3rem; font-size: 1rem;">
+                                            <i class="fas fa-star" style="font-size: 1.2rem;"></i>
+                                            </a>
+                                        </span>
+                                        @else
+                                        <span class="badge bg-warning mb-1"><a onclick="onFavorit('{{Crypt::encrypt($pegawai->id_pegawai)}}')" class="btn btn" style="padding: 0.2rem 0.3rem; font-size: 1rem;">
+                                            <i class="fas fa-check" style="font-size: 1.2rem;"></i>
+                                            </a>
+                                        </span>
+                                        @endif
                                     </td>
                                     <td>
                                         <span class="badge badge bg-success mb-1">
@@ -90,6 +104,28 @@
 </script>
 <script>
     $(document).ready(function() {});
+
+        function onFavorit(id){
+            // alert(id)
+            // {{ url('admin-puskesmas/pegawai_favorit/'. Crypt::encrypt($pegawai->id_pegawai)) }}
+            Swal.fire({
+                title: "Jadikan Pegawai Favorit?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        icon: "success"
+                    });
+
+                    window.location = `{{url('admin-puskesmas/pegawai_favorit/${id}')}}`
+                }
+            });
+        }
 
         function tambahData() {
             window.location.href = "{{ route('add_pegawai_puskesmas') }}"
